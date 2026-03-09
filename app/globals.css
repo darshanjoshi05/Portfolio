@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050810;
+  --surface: #0c1120;
+  --accent: #00d4ff;
+  --accent2: #7c3aed;
+  --accent3: #f59e0b;
+  --text: #e8f0fe;
+  --muted: #6b7fa3;
+  --border: rgba(100,180,255,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #050810;
+  color: #e8f0fe;
+  font-family: 'DM Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050810; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.3); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.6); }
+
+/* Selection */
+::selection { background: rgba(0,212,255,0.2); color: #e8f0fe; }
+
+/* Three.js canvas */
+canvas { display: block; }
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, #00d4ff 60%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Clip path button */
+.clip-btn {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+/* Border glow */
+.border-glow {
+  box-shadow: 0 0 20px rgba(0,212,255,0.08), inset 0 0 20px rgba(0,212,255,0.02);
+}
+
+/* Prose in markdown preview */
+.md-preview h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; color: #e8f0fe; margin-bottom: 0.5rem; margin-top: 1rem; }
+.md-preview h3:first-child { margin-top: 0; }
+.md-preview p { margin-bottom: 0.75rem; color: #6b7fa3; font-size: 0.8rem; line-height: 1.8; }
+.md-preview ul { padding-left: 1.2rem; margin-bottom: 0.75rem; }
+.md-preview ul li { color: #6b7fa3; font-size: 0.78rem; margin-bottom: 0.25rem; }
+.md-preview strong { color: #00d4ff; font-weight: 400; }
+.md-preview code { font-family: 'DM Mono', monospace; font-size: 0.7em; color: #f59e0b; background: rgba(245,158,11,0.08); padding: 0.1rem 0.3rem; }
+
+/* ── Timeline line ── */
+.timeline-line { background: linear-gradient(to bottom, #00d4ff, #7c3aed, transparent); }
+
+/* ── Mobile safe area ── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  body { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* ── Prevent content overflow on small screens ── */
+.max-w-7xl { max-width: min(1400px, 100%); }
+
+/* ── Touch interactions & micro-animations ── */
+
+/* Active press feedback for all interactive elements */
+a, button, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+/* Cards — press down on touch */
+.group:active {
+  transform: scale(0.985);
+}
+
+/* Prevent double-tap zoom on interactive elements */
+a, button {
+  touch-action: manipulation;
+}
+
+/* Ripple effect on buttons */
+.clip-btn {
+  position: relative;
+  overflow: hidden;
+}
+.clip-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.clip-btn:active::after {
+  opacity: 1;
+}
+
+/* Smooth scale press on project cards */
+.project-card-touch {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.2s ease;
+}
+.project-card-touch:active {
+  transform: scale(0.97) translateY(1px) !important;
+}
+
+/* Nav link press */
+nav a:active, nav button:active {
+  opacity: 0.7;
+}
+
+/* Skill tag press */
+.skill-tag-interactive:active {
+  transform: scale(0.93);
+  opacity: 0.8;
+}
+
+/* Border glow pulse on focus (keyboard accessibility) */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px rgba(0,212,255,0.15);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition-property: color, border-color, background-color, opacity, transform, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Touch device — remove hover flicker */
+@media (hover: none) {
+  .group:hover .group-hover\:opacity-100 { opacity: 0; }
+  .group:active .group-hover\:opacity-100 { opacity: 1; }
+  a:hover, button:hover { opacity: 1; }
+}
+
+/* Smooth scroll momentum on iOS */
+.overflow-y-auto, .overflow-y-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Subtle entrance animation for page load */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+main, section:first-of-type {
+  animation: pageEnter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Arch node colors */
+.arch-blue   { border-color: rgba(0,212,255,0.4);  color: #00d4ff;  background: rgba(0,212,255,0.06); }
+.arch-purple { border-color: rgba(124,58,237,0.4); color: #a78bfa; background: rgba(124,58,237,0.06); }
+.arch-amber  { border-color: rgba(245,158,11,0.4); color: #f59e0b; background: rgba(245,158,11,0.06); }
+.arch-green  { border-color: rgba(52,211,153,0.4); color: #34d399; background: rgba(52,211,153,0.06); }
+
+/* ── Mobile touch targets & canvas ── */
+@media (max-width: 768px) {
+  button, a { min-height: 40px; }
+  canvas { touch-action: none; }
+  html { -webkit-text-size-adjust: 100%; }
+}
+
+/* ── Resume page ── */
+.resume-page { font-family: 'DM Mono', monospace; }
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00a8cc;
+  font-weight: 700;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+@media print {
+  .no-print { display: none !important; }
+  .resume-page { padding-top: 0 !important; }
+  body { background: white !important; color: #1a1a2e !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
+@page { margin: 0.6in 0.5in; size: letter; }
