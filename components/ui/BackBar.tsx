@@ -21,7 +21,7 @@ export default function BackBar({ label = 'Back', href = '/', section }: BackBar
   }
 
   return (
-    <div className="fixed top-[56px] sm:top-[64px] left-0 right-0 z-[90] border-b border-white/[0.05] bg-[rgba(5,8,16,0.85)] backdrop-blur-md">
+    <div className="fixed top-[56px] sm:top-[64px] left-0 right-0 z-[90] border-b border-white/[0.05] backdrop-blur-md" style={{ background: 'color-mix(in srgb, var(--bg) 88%, transparent)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-16 h-9 flex items-center justify-between">
         {/* Back button */}
         <button

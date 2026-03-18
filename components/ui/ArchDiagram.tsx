@@ -16,7 +16,7 @@ export default function ArchDiagram({ arch }: { arch: Project['architecture'] })
   })
 
   return (
-    <div className="border border-white/[0.08] p-8 bg-surface relative overflow-hidden">
+    <div className="border border-white/[0.08] p-8 relative overflow-hidden bg-surface-theme">
       <div className="absolute inset-0 bg-gradient-radial from-accent/[0.03] to-transparent pointer-events-none" />
       <div className="relative z-10 flex flex-col items-center gap-2">
         {Object.entries(rows).map(([rowIdx, nodes]) => (

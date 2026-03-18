@@ -158,7 +158,7 @@ const JSON_CONTENT: Record<string, React.ReactNode> = {
 
 const STRUCTURE_CONTENT: Record<string, React.ReactNode> = {
   'resume-intelligence-engine': (<>
-    <div><span className="text-accent">📁</span> <span className="text-[#e8f0fe]">resume-intelligence-engine/</span></div>
+    <div><span className="text-accent">📁</span> <span className="text-muted">resume-intelligence-engine/</span></div>
     <div className="text-muted">├─ <span className="text-accent3">main.py</span>          <span className="text-muted/40">FastAPI entry</span></div>
     <div className="text-muted">├─ <span className="text-[#a78bfa]">jd_parser.py</span>     <span className="text-muted/40">NLP pipeline</span></div>
     <div className="text-muted">├─ <span className="text-[#a78bfa]">suitability.py</span>  <span className="text-muted/40">Scoring engine</span></div>
@@ -170,7 +170,7 @@ const STRUCTURE_CONTENT: Record<string, React.ReactNode> = {
     <div className="text-muted">└─ <span className="text-accent3">requirements.txt</span></div>
   </>),
   'classroom-behavior-detection': (<>
-    <div><span className="text-accent">📁</span> <span className="text-[#e8f0fe]">classroom-behavior-detection/</span></div>
+    <div><span className="text-accent">📁</span> <span className="text-muted">classroom-behavior-detection/</span></div>
     <div className="text-muted">├─ <span className="text-accent3">train.py</span>         <span className="text-muted/40">YOLOv8 training</span></div>
     <div className="text-muted">├─ <span className="text-accent3">evaluate.py</span>      <span className="text-muted/40">mAP evaluation</span></div>
     <div className="text-muted">├─ <span className="text-accent3">gradcam.py</span>       <span className="text-muted/40">Explainability</span></div>
@@ -181,7 +181,7 @@ const STRUCTURE_CONTENT: Record<string, React.ReactNode> = {
     <div className="text-muted">└─ <span className="text-[#34d399]">runs/detect/</span>    <span className="text-muted/40">Results</span></div>
   </>),
   'buffer-overflow-attack-lab': (<>
-    <div><span className="text-accent">📁</span> <span className="text-[#e8f0fe]">buffer-overflow-lab/</span></div>
+    <div><span className="text-accent">📁</span> <span className="text-muted">buffer-overflow-lab/</span></div>
     <div className="text-muted">├─ <span className="text-accent3">vulnerable.c</span>     <span className="text-muted/40">Target program</span></div>
     <div className="text-muted">├─ <span className="text-[#f87171]">exploit.py</span>       <span className="text-muted/40">Stack smash</span></div>
     <div className="text-muted">├─ <span className="text-[#f87171]">heap_exploit.py</span> <span className="text-muted/40">Heap overflow</span></div>
@@ -190,7 +190,7 @@ const STRUCTURE_CONTENT: Record<string, React.ReactNode> = {
     <div className="text-muted">└─ <span className="text-accent3">report.pdf</span>       <span className="text-muted/40">Lab writeup</span></div>
   </>),
   'formal-language-typing-game': (<>
-    <div><span className="text-accent">📁</span> <span className="text-[#e8f0fe]">formal-language-game/</span></div>
+    <div><span className="text-accent">📁</span> <span className="text-muted">formal-language-game/</span></div>
     <div className="text-muted">├─ <span className="text-accent3">main.py</span>          <span className="text-muted/40">Game loop</span></div>
     <div className="text-muted">├─ <span className="text-[#a78bfa]">regex_engine.py</span> <span className="text-muted/40">RE validator</span></div>
     <div className="text-muted">├─ <span className="text-[#a78bfa]">automata.py</span>     <span className="text-muted/40">DFA / PDA logic</span></div>
@@ -201,7 +201,7 @@ const STRUCTURE_CONTENT: Record<string, React.ReactNode> = {
     <div className="text-muted">└─ <span className="text-accent3">tkinter_ui.py</span>    <span className="text-muted/40">GUI</span></div>
   </>),
   'global-harvest-imports': (<>
-    <div><span className="text-accent">📁</span> <span className="text-[#e8f0fe]">global-harvest-db/</span></div>
+    <div><span className="text-accent">📁</span> <span className="text-muted">global-harvest-db/</span></div>
     <div className="text-muted">├─ <span className="text-[#34d399]">schema/</span></div>
     <div className="text-muted">│  ├─ <span className="text-accent3">customers.sql</span></div>
     <div className="text-muted">│  ├─ <span className="text-accent3">products.sql</span></div>
@@ -216,7 +216,7 @@ const STRUCTURE_CONTENT: Record<string, React.ReactNode> = {
 function TerminalMock({ projectId }: { projectId?: string }) {
   const content = projectId && TERMINAL_CONTENT[projectId]
   return (
-    <div className="bg-[#0a0f1a] p-4 font-mono text-[0.62rem] leading-[1.75] h-full overflow-hidden">
+    <div className="p-4 font-mono text-[0.62rem] leading-[1.75] h-full overflow-hidden" style={{ background: 'var(--surface)' }}>
       <div className="flex gap-2 mb-3 pb-2 border-b border-white/[0.05]">
         <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
         <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
@@ -297,7 +297,7 @@ export default function GalleryMock({ items }: { items: GalleryItem[] }) {
               style={{ minHeight: 200 }}>
               <div className="h-full">{renderMock()}</div>
               <div className="absolute inset-x-0 bottom-0 px-3 py-2 bg-gradient-to-t from-bg via-bg/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <div className="text-[0.62rem] font-sans font-semibold text-[#e8f0fe]">{item.title}</div>
+                <div className="text-[0.62rem] font-sans font-semibold text-muted">{item.title}</div>
                 <div className="text-[0.58rem] text-muted/70">{item.description}</div>
               </div>
             </div>
@@ -308,7 +308,7 @@ export default function GalleryMock({ items }: { items: GalleryItem[] }) {
       {/* Lightbox */}
       {active !== null && (
         <div className="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setActive(null)}>
-          <div className="bg-[#0c1120] border border-white/[0.12] w-full max-w-2xl" onClick={e => e.stopPropagation()}>
+          <div className="bg-[color:var(--surface)] border border-white/[0.12] w-full max-w-2xl" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
               <div>
                 <span className="text-[0.72rem] tracking-[0.1em] uppercase text-accent">{items[active].title}</span>

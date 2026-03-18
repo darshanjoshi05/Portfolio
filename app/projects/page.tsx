@@ -66,7 +66,8 @@ export default function ProjectsPage() {
           {filtered.map((p, i) => (
             <FadeUp key={p.id} delay={i * 0.06}>
               <Link href={`/projects/${p.id}`}
-                className="group block border border-white/[0.06] bg-surface p-7 hover:border-accent/30 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(0,0,0,0.55)] transition-all duration-300 relative overflow-hidden h-full">
+                className="group block border border-white/[0.06] p-7 hover:border-accent/30 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(0,0,0,0.55)] transition-all duration-300 relative overflow-hidden h-full"
+                style={{ background: 'var(--surface)' }}>
 
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 {/* Bottom accent line */}

@@ -6,7 +6,7 @@ export default function ResumePage() {
   return (
     <>
       {/* Top bar — hidden on print */}
-      <div className="print:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 bg-[rgba(5,8,16,0.95)] backdrop-blur-xl border-b border-white/[0.06]">
+      <div className="print:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3 backdrop-blur-xl border-b border-white/[0.06]" style={{ background: "var(--nav-bg)" }}>
         <Link href="/" className="text-[0.68rem] tracking-[0.12em] uppercase text-muted hover:text-accent transition-colors flex items-center gap-2">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
           Back

@@ -1,0 +1,22 @@
+{
+  "app\\page.tsx -> @/components/three/HeroScene": {
+    "id": 2715,
+    "files": [
+      "static/chunks/b536a0f1.6a27059e4c6e445d.js",
+      "static/chunks/715.8d6ed65ffbf3c903.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/three/ParticleCanvas": {
+    "id": 1274,
+    "files": [
+      "static/chunks/274.822d79fcbf749846.js"
+    ]
+  },
+  "app\\projects\\[id]\\ProjectDetail.tsx -> @/components/three/ProjectScene": {
+    "id": 621,
+    "files": [
+      "static/chunks/b536a0f1.6a27059e4c6e445d.js",
+      "static/chunks/621.8dcd161d2c5cca0b.js"
+    ]
+  }
+}

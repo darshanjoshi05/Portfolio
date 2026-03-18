@@ -25,7 +25,7 @@ export default function InsightsEditor({ projectId, defaultValue }: Props) {
   }, [storageKey, value])
 
   return (
-    <div className="border border-white/[0.08] bg-surface overflow-hidden">
+    <div className="border border-white/[0.08] overflow-hidden insights-editor-wrap" style={{ background: 'var(--surface)', borderColor: 'rgba(var(--border-color, 255,255,255), 0.08)' }}>
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
         <div className="text-[0.7rem] tracking-[0.15em] uppercase text-accent flex items-center gap-2">
@@ -58,7 +58,7 @@ export default function InsightsEditor({ projectId, defaultValue }: Props) {
             value={value}
             onChange={e => setValue(e.target.value)}
             placeholder="### What I Learned&#10;&#10;Write your insights here...&#10;&#10;Use **bold**, *italic*, `code`&#10;&#10;- Insight 1&#10;- Insight 2"
-            className="w-full h-[290px] bg-transparent border-none outline-none resize-none font-mono text-[0.76rem] leading-[1.85] text-[#e8f0fe] p-4 placeholder:text-muted/50"
+            className="w-full h-[290px] bg-transparent border-none outline-none resize-none font-mono text-[0.76rem] leading-[1.85]p-4 placeholder:text-muted/50"
           />
         </div>
 
