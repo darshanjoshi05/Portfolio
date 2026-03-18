@@ -1,0 +1,14 @@
+{
+  "app\\page.tsx -> @/components/three/HeroScene": {
+    "id": "app\\page.tsx -> @/components/three/HeroScene",
+    "files": [
+      "static/chunks/_app-pages-browser_components_three_HeroScene_tsx.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/three/ParticleCanvas": {
+    "id": "app\\page.tsx -> @/components/three/ParticleCanvas",
+    "files": [
+      "static/chunks/_app-pages-browser_components_three_ParticleCanvas_tsx.js"
+    ]
+  }
+}
