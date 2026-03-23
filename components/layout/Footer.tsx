@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="h-px mb-6" style={{ background: 'rgba(255,255,255,0.05)' }} />
 
         {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-5">
           <span className="text-[0.62rem] text-muted/50 font-mono">
             © 2026 Darshan Joshi · Built with Next.js 14, Three.js & Framer Motion
           </span>
