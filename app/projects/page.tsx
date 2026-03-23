@@ -38,7 +38,7 @@ export default function ProjectsPage() {
       <ProgressBar />
       <Nav />
       <BackBar label="Back to Home" href="/" section="All Projects" />
-      <div className="relative z-10 pt-36 pb-20 px-6 md:px-16 max-w-7xl mx-auto">
+      <div className="relative z-10 pt-8 sm:pt-12 pb-20 px-6 md:px-16 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <div className="text-[0.65rem] tracking-[0.25em] uppercase text-accent mb-4 flex items-center gap-3">
             <span className="w-8 h-px bg-accent" /> {PROJECTS.length} Projects
@@ -66,7 +66,8 @@ export default function ProjectsPage() {
           {filtered.map((p, i) => (
             <FadeUp key={p.id} delay={i * 0.06}>
               <Link href={`/projects/${p.id}`}
-                className="group block border border-white/[0.06] bg-surface p-7 hover:border-accent/30 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(0,0,0,0.55)] transition-all duration-300 relative overflow-hidden h-full">
+                className="group block border border-white/[0.06] p-7 hover:border-accent/30 hover:-translate-y-2 hover:shadow-[0_24px_64px_rgba(0,0,0,0.55)] transition-all duration-300 relative overflow-hidden h-full"
+                style={{ background: 'var(--surface)' }}>
 
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                 {/* Bottom accent line */}

@@ -25,7 +25,7 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
   return (
     <div ref={ref} className="mb-4">
       <div className="flex justify-between text-[0.7rem] mb-1.5">
-        <span className="text-[#e8f0fe]/80">{name}</span>
+        <span className="text-muted">{name}</span>
         <span className="text-accent font-mono">{level}%</span>
       </div>
       <div className="h-[3px] bg-white/[0.05] rounded-full overflow-hidden">
@@ -47,10 +47,11 @@ export default function EducationPage() {
       <Nav />
       <BackBar label="Back to Home" href="/" section="Education & Skills" />
 
-      <div className="relative z-10 pt-44 pb-32 px-6 md:px-16 max-w-7xl mx-auto">
+      <div className="relative z-10 pt-8 sm:pt-12 pb-32 px-6 md:px-16 max-w-7xl mx-auto">
 
         {/* Page header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-20">
+          <h1 className="sr-only">Darshan Joshi — Education and Skills</h1>
           <div className="text-[0.65rem] tracking-[0.25em] uppercase text-accent mb-4 flex items-center gap-3">
             <span className="w-8 h-px bg-accent" /> Qualifications & Knowledge
           </div>
@@ -123,7 +124,7 @@ export default function EducationPage() {
                   {cert.issuer === 'EC-Council' ? '🛡' : '📜'}
                 </div>
                 <div>
-                  <div className="text-[0.78rem] font-sans font-semibold text-[#e8f0fe] group-hover:text-accent transition-colors mb-1">{cert.name}</div>
+                  <div className="text-[0.78rem] font-sans font-semibold group-hover:text-accent transition-colors mb-1">{cert.name}</div>
                   <div className={`text-[0.62rem] tracking-[0.1em] uppercase ${cert.issuer === 'EC-Council' ? 'text-accent/70' : 'text-[#a78bfa]/70'}`}>{cert.issuer}</div>
                 </div>
               </motion.div>

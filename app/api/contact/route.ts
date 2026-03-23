@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
             <!-- Footer -->
             <div style="border-top:1px solid rgba(100,180,255,0.08);padding-top:20px;text-align:center;">
               <div style="font-size:11px;color:#6b7fa3;letter-spacing:1px;">
-                Received via <span style="color:#00d4ff;">darshanjoshi.dev</span> portfolio contact form
+                Received via <span style="color:#00d4ff;">darshanjoshi.tech</span> portfolio contact form
               </div>
             </div>
           </div>
@@ -129,6 +129,7 @@ export async function POST(req: NextRequest) {
               In the meantime, feel free to check out my work:
             </p>
             <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;">
+              <a href="https://darshanjoshi.tech" style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#00d4ff;text-decoration:none;border:1px solid rgba(0,212,255,0.3);padding:8px 16px;">Portfolio</a>
               <a href="https://github.com/darshanjoshi05" style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#00d4ff;text-decoration:none;border:1px solid rgba(0,212,255,0.3);padding:8px 16px;">GitHub</a>
               <a href="https://linkedin.com/in/darshanjoshi05" style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#7c3aed;text-decoration:none;border:1px solid rgba(124,58,237,0.3);padding:8px 16px;">LinkedIn</a>
             </div>

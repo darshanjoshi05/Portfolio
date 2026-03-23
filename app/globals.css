@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Dark mode (default) ── */
 :root {
   --bg: #050810;
   --surface: #0c1120;
@@ -13,13 +14,40 @@
   --text: #e8f0fe;
   --muted: #6b7fa3;
   --border: rgba(100,180,255,0.08);
+  --nav-bg: rgba(5,8,16,0.85);
+  --scrollbar-track: #050810;
+  --noise-opacity: 0.25;
+}
+
+/* ── Light mode ── */
+html.light {
+  --bg: #f5f6f8;
+  --surface: #eef0f5;
+  --accent: #0099cc;
+  --accent2: #6d28d9;
+  --accent3: #d97706;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: rgba(0,100,180,0.1);
+  --nav-bg: rgba(245,246,248,0.94);
+  --scrollbar-track: #f5f6f8;
+  --noise-opacity: 0.06;
+}
+
+/* ── Smooth theme transition ── */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease;
+}
+/* But NOT layout transitions */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: #050810;
-  color: #e8f0fe;
+  background: var(--bg);
+  color: var(--text);
   font-family: 'DM Mono', monospace;
   overflow-x: hidden;
 }
@@ -32,20 +60,135 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   z-index: 0;
   pointer-events: none;
-  opacity: 0.25;
+  opacity: var(--noise-opacity);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #050810; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
 ::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.3); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.6); }
 
 /* Selection */
-::selection { background: rgba(0,212,255,0.2); color: #e8f0fe; }
+::selection { background: rgba(0,212,255,0.2); color: var(--text); }
 
-/* Three.js canvas */
-canvas { display: block; }
+/* Nav light mode */
+html.light nav {
+  background: var(--nav-bg) !important;
+  border-bottom-color: rgba(0,0,0,0.08) !important;
+}
+
+/* Surface cards light mode */
+html.light .bg-surface {
+  background: var(--surface) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+html.light .bg-bg {
+  background: var(--bg) !important;
+}
+
+/* Mobile drawer light mode */
+html.light .mobile-drawer {
+  background: rgba(245,246,248,0.98) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* Text colors in light mode */
+html.light .text-muted {
+  color: var(--muted) !important;
+}
+html.light body {
+  color: var(--text);
+}
+
+/* ── Light mode overrides for hardcoded colors ── */
+html.light body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Hardcoded dark backgrounds → light */
+html.light [class*="bg-[#050810]"],
+html.light [class*="bg-[rgba(5,8,16"] {
+  background-color: var(--bg) !important;
+}
+html.light [class*="bg-[#0c1120]"],
+html.light [class*="bg-[#111827]"],
+html.light [class*="bg-[#0d1528]"] {
+  background-color: var(--surface) !important;
+}
+
+/* Text overrides */
+html.light [class*="text-[#e8f0fe]"],
+html.light [class*="text-[#c8d8f0]"],
+html.light [class*="text-white"] {
+  color: var(--text) !important;
+}
+html.light [class*="text-[#6b7fa3]"],
+html.light [class*="text-[#8899bb]"],
+html.light [class*="text-[#a0b0cc]"] {
+  color: var(--muted) !important;
+}
+
+/* Border overrides */
+html.light [class*="border-white/"] {
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* Cards & sections */
+html.light section,
+html.light .card-surface {
+  background-color: transparent;
+}
+
+/* Gradient text in light mode */
+html.light .gradient-text {
+  background: linear-gradient(135deg, #0f172a 0%, var(--accent) 60%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Three.js hero bg in light mode */
+html.light canvas {
+  opacity: 0.6;
+}
+
+/* Timeline */
+html.light .timeline-line {
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+}
+
+/* Input fields */
+html.light input, html.light textarea {
+  background: white !important;
+  color: #0f172a !important;
+  border-color: rgba(0,100,180,0.15) !important;
+}
+html.light input::placeholder, html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Arch diagram nodes */
+html.light .arch-blue   { background: rgba(0,153,204,0.08) !important; }
+html.light .arch-purple { background: rgba(109,40,217,0.08) !important; }
+html.light .arch-amber  { background: rgba(217,119,6,0.08) !important; }
+html.light .arch-green  { background: rgba(16,185,129,0.08) !important; }
+
+/* ── Profile photo animations ── */
+@keyframes float-photo {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes shadow-fade {
+  0%, 100% { opacity: 0.6; transform: scaleX(1); }
+  50%       { opacity: 0.15; transform: scaleX(0.6); }
+}
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* Gradient text utility */
 .gradient-text {
@@ -185,6 +328,18 @@ main, section:first-of-type {
   html { -webkit-text-size-adjust: 100%; }
 }
 
+
+/* ── Theme-aware text utility ── */
+.text-theme { color: var(--text); }
+.bg-theme   { background: var(--bg); }
+.bg-surface-theme { background: var(--surface); }
+
+/* ── Light mode: fix inline style color:var(--text) on elements ── */
+html.light [style*="color: var(--text)"],
+html.light [style*="color:var(--text)"] {
+  color: var(--text) !important;
+}
+
 /* ── Resume page ── */
 .resume-page { font-family: 'DM Mono', monospace; }
 .section-title {
@@ -205,3 +360,118 @@ main, section:first-of-type {
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 @page { margin: 0.6in 0.5in; size: letter; }
+
+/* ── Light mode: terminal & gallery panel backgrounds ── */
+html.light [class*="bg-[#0a0f1"],
+html.light [class*="bg-[#050810"],
+html.light [class*="bg-[#0c1120"] {
+  background-color: var(--surface) !important;
+}
+
+/* Light mode: terminal text — keep coloured output readable */
+html.light .text-\[\#34d399\] { color: #059669 !important; }
+html.light .text-\[\#a78bfa\] { color: #6d28d9 !important; }
+html.light .text-\[#f87171\]  { color: #dc2626 !important; }
+
+/* Light mode: 3D canvas opacity — make it slightly visible, not washed out */
+html.light canvas { opacity: 0.55; }
+
+/* Light mode: fix bar/scores in GalleryMock */
+html.light .gallery-score-bar { background: rgba(0,100,180,0.08) !important; }
+
+/* Light mode: InsightsEditor textarea */
+html.light .insights-editor textarea {
+  background: white !important;
+  color: #0f172a !important;
+  border-color: rgba(0,100,180,0.12) !important;
+}
+html.light .insights-editor .md-preview h3 { color: #0f172a !important; }
+html.light .insights-editor .md-preview strong { color: var(--accent) !important; }
+
+/* ── blink animation for status dots ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.animate-blink { animation: blink 1.1s step-end infinite; }
+
+/* ── float animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+.animate-float { animation: float 2.5s ease-in-out infinite; }
+
+/* ── Tailwind-compatible theme utilities ── */
+.text-theme          { color: var(--text) !important; }
+.bg-theme            { background-color: var(--bg) !important; }
+.bg-surface-theme    { background-color: var(--surface) !important; }
+.border-theme        { border-color: var(--border) !important; }
+
+/* ── Light mode: InsightsEditor ── */
+html.light .insights-editor-wrap {
+  background: var(--surface) !important;
+}
+html.light .insights-editor-wrap textarea {
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+/* ── Light mode: md-preview text ── */
+html.light .md-preview h3 { color: var(--text) !important; }
+html.light .md-preview p  { color: var(--muted) !important; }
+
+/* ── Light mode: GalleryMock modal ── */
+html.light .gallery-modal-bg {
+  background: rgba(240,244,255,0.92) !important;
+}
+
+/* ── Light mode: border-white overrides ── */
+html.light [class*="border-white/[0.06]"],
+html.light [class*="border-white/[0.08]"],
+html.light [class*="border-white/[0.05]"],
+html.light [class*="border-white/[0.12]"] {
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* ── Light mode: divide-white ── */
+html.light [class*="divide-white/"] > * + * {
+  border-color: rgba(0,0,0,0.07) !important;
+}
+
+/* ── Light mode: bg-bg/60 panels ── */
+html.light [class*="bg-bg/"] {
+  background-color: color-mix(in srgb, var(--bg) 60%, transparent) !important;
+}
+
+/* ── Gradient text clip fix — never let parent overflow:hidden cut it ── */
+.gradient-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Padding bottom prevents descender clipping */
+  padding-bottom: 0.06em;
+  /* Must be inline-block or block to respect padding */
+  display: inline-block;
+  overflow: visible;
+}
+
+/* Project hero — ensure title row never overlaps BackBar */
+.project-hero-title {
+  padding-top: 0;
+  margin-top: 0;
+  overflow: visible;
+}
+
+/* ── Screen-reader only — visible to Google, invisible to users ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

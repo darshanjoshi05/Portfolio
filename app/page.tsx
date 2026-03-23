@@ -7,7 +7,7 @@ import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import ProgressBar from '@/components/ui/ProgressBar'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { PERSON, SKILLS, EXPERIENCE, PROJECTS } from '@/lib/data'
+import { PERSON, SKILLS, EXPERIENCE, PROJECTS, PUBLICATIONS } from '@/lib/data'
 
 const HeroScene   = dynamic(() => import('@/components/three/HeroScene'),   { ssr: false })
 const ParticleCanvas = dynamic(() => import('@/components/three/ParticleCanvas'), { ssr: false })
@@ -72,7 +72,7 @@ export default function Home() {
   }, [termLine])
 
   const termColor: Record<string, string> = {
-    cmd: 'text-accent', out: 'text-[#34d399]', key: 'text-[#a78bfa]', str: 'text-accent3', num: 'text-[#e8f0fe]',
+    cmd: 'text-accent', out: 'text-[#34d399]', key: 'text-[#a78bfa]', str: 'text-accent3', num: 'text-theme',
   }
 
   return (
@@ -113,7 +113,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div>
-                  <div className="text-[0.7rem] font-sans font-bold text-[#e8f0fe]">Darshan Joshi</div>
+                  <div className="text-[0.7rem] font-sans font-bold text-theme">Darshan Joshi</div>
                   <div className="text-[0.6rem] text-accent tracking-[0.1em] uppercase">AI Engineer</div>
                 </div>
               </motion.div>
@@ -169,19 +169,32 @@ export default function Home() {
             {/* Right — photo + terminal */}
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.5 }}
               className="hidden lg:flex flex-col gap-6">
-              {/* Photo frame */}
-              <div className="relative w-[220px] self-center">
-                <div className="absolute -inset-3 border border-accent/20 pointer-events-none" />
-                <div className="absolute -top-1 -left-1 w-5 h-5 border-t-2 border-l-2 border-accent" />
-                <div className="absolute -top-1 -right-1 w-5 h-5 border-t-2 border-r-2 border-accent" />
-                <div className="absolute -bottom-1 -left-1 w-5 h-5 border-b-2 border-l-2 border-accent" />
-                <div className="absolute -bottom-1 -right-1 w-5 h-5 border-b-2 border-r-2 border-accent" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/photo.jpg" alt="Darshan Joshi" className="w-full aspect-square object-cover object-top" />
+              {/* Photo — round floating with gradient ring */}
+              <div className="self-center flex flex-col items-center gap-3">
+                <div className="relative" style={{ animation: 'float-photo 3.5s ease-in-out infinite' }}>
+                  {/* Animated gradient border */}
+                  <div className="absolute -inset-[3px] rounded-full pointer-events-none"
+                    style={{ background: 'linear-gradient(135deg, #00d4ff, #7c3aed, #f59e0b, #00d4ff)', backgroundSize: '300% 300%', animation: 'gradient-shift 4s ease infinite', borderRadius: '9999px' }} />
+                  {/* Outer glow ring */}
+                  <div className="absolute -inset-[10px] rounded-full pointer-events-none opacity-40"
+                    style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.2) 0%, transparent 70%)' }} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/photo.jpg" alt="Darshan Joshi"
+                    className="relative w-[200px] h-[200px] rounded-full object-cover object-top border-[3px] border-bg"
+                    style={{ position: 'relative', zIndex: 1 }}
+                  />
+                  {/* Online dot */}
+                  <span className="absolute bottom-3 right-3 flex" style={{ zIndex: 2 }}>
+                    <span className="absolute inline-block w-4 h-4 rounded-full bg-[#34d399]/40 animate-ping" />
+                    <span className="relative w-4 h-4 rounded-full bg-[#34d399] border-2 border-bg" />
+                  </span>
+                </div>
+                {/* Floating shadow */}
+                <div style={{ width: '120px', height: '10px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(0,212,255,0.25) 0%, transparent 70%)', animation: 'shadow-fade 3.5s ease-in-out infinite' }} />
               </div>
 
               {/* Terminal */}
-              <div className="bg-[#0a0f1a] border border-accent/10 rounded-sm p-4 font-mono text-[0.65rem] leading-[1.7]">
+              <div className="border border-accent/10 rounded-sm p-4 font-mono text-[0.65rem] leading-[1.7]" style={{ background: 'var(--surface)' }}>
                 <div className="flex gap-2 mb-3 pb-2 border-b border-white/[0.05]">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
                   <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
@@ -231,16 +244,19 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-2 space-y-4">
-            {/* Photo — desktop only, also shown in about sidebar */}
+            {/* Photo — desktop sidebar, round floating */}
             <FadeUp>
-              <div className="relative w-32 mb-6 hidden lg:block">
-                <div className="absolute -inset-2 border border-accent/15 pointer-events-none" />
-                <div className="absolute -top-0.5 -left-0.5 w-4 h-4 border-t-2 border-l-2 border-accent" />
-                <div className="absolute -top-0.5 -right-0.5 w-4 h-4 border-t-2 border-r-2 border-accent" />
-                <div className="absolute -bottom-0.5 -left-0.5 w-4 h-4 border-b-2 border-l-2 border-accent" />
-                <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 border-b-2 border-r-2 border-accent" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/photo.jpg" alt="Darshan Joshi" className="w-full aspect-square object-cover object-top" />
+              <div className="hidden lg:flex flex-col items-center gap-2 mb-6">
+                <div className="relative" style={{ animation: 'float-photo 3.5s ease-in-out infinite' }}>
+                  <div className="absolute -inset-[3px] rounded-full pointer-events-none"
+                    style={{ background: 'linear-gradient(135deg, #00d4ff, #7c3aed, #f59e0b, #00d4ff)', backgroundSize: '300% 300%', animation: 'gradient-shift 4s ease infinite', borderRadius: '9999px' }} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/photo.jpg" alt="Darshan Joshi"
+                    className="relative w-24 h-24 rounded-full object-cover object-top border-[3px] border-bg"
+                    style={{ position: 'relative', zIndex: 1 }}
+                  />
+                </div>
+                <div style={{ width: '60px', height: '6px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(0,212,255,0.2) 0%, transparent 70%)', animation: 'shadow-fade 3.5s ease-in-out infinite' }} />
               </div>
             </FadeUp>
 
@@ -255,7 +271,7 @@ export default function Home() {
               <FadeUp key={r.label} delay={i * 0.06}>
                 <div className="flex justify-between items-start py-3 border-b border-white/[0.05]">
                   <span className="text-[0.65rem] tracking-[0.12em] uppercase text-muted">{r.label}</span>
-                  <span className={`text-[0.75rem] font-mono ${r.accent ? 'text-accent' : 'text-[#e8f0fe]'}`}>{r.val}</span>
+                  <span className={`text-[0.75rem] font-mono ${r.accent ? 'text-accent' : 'text-theme'}`}>{r.val}</span>
                 </div>
               </FadeUp>
             ))}
@@ -291,7 +307,7 @@ export default function Home() {
                 <div className="border border-white/[0.06] bg-surface p-8 hover:border-accent/20 transition-colors">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                     <div>
-                      <h3 className="font-sans font-bold text-xl text-[#e8f0fe] mb-1">{exp.role}</h3>
+                      <h3 className="font-sans font-bold text-xl text-theme mb-1">{exp.role}</h3>
                       <div className="text-accent text-[0.8rem]">{exp.org} · {exp.location}</div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -320,48 +336,88 @@ export default function Home() {
       <section id="projects" className="relative z-10 px-4 sm:px-6 md:px-16 py-16 sm:py-24 max-w-7xl mx-auto">
         <SectionHeader num="03" title="Selected Projects" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {PROJECTS.map((p, i) => (
+        {/* Featured project — full-width showcase */}
+        {PROJECTS.filter(p => p.featured).map(p => (
+          <FadeUp key={p.id} delay={0.05} className="mb-5">
+            <Link href={`/projects/${p.id}`}
+              className="group block border p-7 sm:p-8 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(0,0,0,0.4)] transition-all duration-300 relative overflow-hidden"
+              style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'var(--surface)' }}>
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-accent2 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="relative z-10 flex flex-col sm:flex-row sm:items-start gap-6">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <span className="text-[0.6rem] tracking-[0.15em] text-muted font-mono">{p.num}</span>
+                    <span className="text-[0.58rem] tracking-[0.1em] uppercase px-2 py-0.5 border border-accent/30 text-accent bg-accent/5">Featured</span>
+                    {p.category.map(c => (
+                      <span key={c} className="text-[0.55rem] tracking-[0.1em] uppercase px-2 py-0.5 border border-white/[0.08] text-muted">{c}</span>
+                    ))}
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-2 group-hover:text-accent transition-colors" style={{ color: 'var(--text)' }}>{p.name}</h3>
+                  <p className="text-[0.75rem] text-accent mb-3">{p.tagline}</p>
+                  <p className="text-[0.8rem] leading-[1.8] text-muted mb-5 max-w-2xl">{p.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {p.stack.slice(0, 6).map(s => (
+                      <span key={s} className="text-[0.6rem] px-2 py-0.5 border border-white/[0.07] text-muted/80">{s}</span>
+                    ))}
+                    {p.stack.length > 6 && <span className="text-[0.6rem] text-muted/50">+{p.stack.length - 6}</span>}
+                  </div>
+                </div>
+                <div className="sm:w-44 shrink-0 flex sm:flex-col gap-3">
+                  {p.stats.map(s => (
+                    <div key={s.label} className="flex-1 border border-white/[0.06] px-3 py-3 text-center" style={{ background: 'var(--bg)' }}>
+                      <div className="font-serif text-lg font-bold text-accent">{s.value}</div>
+                      <div className="text-[0.52rem] tracking-[0.08em] uppercase text-muted mt-0.5">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative z-10 flex items-center justify-between mt-4 pt-4 border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+                <span className="text-[0.68rem] tracking-[0.1em] uppercase text-accent flex items-center gap-2 group-hover:gap-3 transition-all">View Project <span>→</span></span>
+                <div className="flex items-center gap-3">
+                  <span className="text-[0.63rem] font-mono text-muted/50">{p.period}</span>
+                  <button onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener,noreferrer') }}
+                    className="text-muted hover:text-accent transition-colors p-1 cursor-pointer" aria-label="GitHub">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </button>
+                </div>
+              </div>
+            </Link>
+          </FadeUp>
+        ))}
+
+        {/* Remaining 4 projects in a clean 4-col grid — no col-spanning */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {PROJECTS.filter(p => !p.featured).map((p, i) => (
             <FadeUp key={p.id} delay={i * 0.07}>
               <Link href={`/projects/${p.id}`}
-                className={`group block border border-white/[0.06] bg-surface p-6 hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-300 relative overflow-hidden ${p.featured ? 'md:col-span-2' : ''}`}>
-
-                {/* bg glow */}
+                className="group flex flex-col border p-5 hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.4)] transition-all duration-300 relative overflow-hidden h-full"
+                style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'var(--surface)' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
-                <div className="relative z-10">
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-accent2 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="relative z-10 flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[0.62rem] tracking-[0.15em] text-muted font-mono">{p.num}</span>
-                    <div className="flex gap-1.5">
+                    <span className="text-[0.56rem] tracking-[0.15em] text-muted/60 font-mono">{p.num}</span>
+                    <div className="flex gap-1">
                       {p.category.map(c => (
-                        <span key={c} className="text-[0.55rem] tracking-[0.1em] uppercase px-2 py-0.5 border border-white/[0.08] text-muted">{c}</span>
+                        <span key={c} className="text-[0.48rem] tracking-[0.08em] uppercase px-1.5 py-0.5 border border-white/[0.07] text-muted/70">{c}</span>
                       ))}
                     </div>
                   </div>
-
-                  <h3 className="font-serif text-xl font-bold mb-2 group-hover:text-accent transition-colors">{p.name}</h3>
-                  <p className="text-[0.72rem] text-accent mb-3">{p.tagline}</p>
-                  <p className="text-[0.78rem] leading-[1.75] text-muted mb-5 line-clamp-3">{p.description}</p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {p.stack.slice(0, 5).map(s => (
-                      <span key={s} className="text-[0.6rem] tracking-[0.06em] px-2 py-0.5 border border-white/[0.06] text-muted/80">{s}</span>
+                  <h3 className="font-serif text-[1rem] font-bold mb-1.5 group-hover:text-accent transition-colors leading-snug" style={{ color: 'var(--text)' }}>{p.name}</h3>
+                  <p className="text-[0.63rem] text-accent mb-2">{p.tagline}</p>
+                  <p className="text-[0.72rem] leading-[1.72] text-muted mb-4 line-clamp-3 flex-1">{p.description}</p>
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {p.stack.slice(0, 3).map(s => (
+                      <span key={s} className="text-[0.54rem] px-1.5 py-0.5 border border-white/[0.07] text-muted/70">{s}</span>
                     ))}
-                    {p.stack.length > 5 && <span className="text-[0.6rem] text-muted/50">+{p.stack.length - 5}</span>}
+                    {p.stack.length > 3 && <span className="text-[0.54rem] text-muted/40">+{p.stack.length - 3}</span>}
                   </div>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-[0.68rem] tracking-[0.1em] uppercase text-accent flex items-center gap-2 group-hover:gap-3 transition-all">
-                      View Project <span>→</span>
-                    </span>
-                    <button
-                      onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener,noreferrer') }}
-                      className="text-muted hover:text-accent transition-colors p-1 cursor-pointer"
-                      aria-label="View on GitHub"
-                    >
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
+                  <div className="flex items-center justify-between mt-auto pt-3 border-t" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+                    <span className="text-[0.6rem] tracking-[0.1em] uppercase text-accent flex items-center gap-1 group-hover:gap-2 transition-all">View →</span>
+                    <button onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(p.github, '_blank', 'noopener,noreferrer') }}
+                      className="text-muted/60 hover:text-accent transition-colors cursor-pointer" aria-label="GitHub">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </button>
                   </div>
                 </div>
@@ -370,10 +426,70 @@ export default function Home() {
           ))}
         </div>
 
-        <FadeUp delay={0.2} className="text-center mt-12">
+        <FadeUp delay={0.2} className="text-center mt-10">
           <Link href="/projects" className="inline-flex items-center gap-3 text-[0.75rem] tracking-[0.15em] uppercase text-muted border border-white/[0.08] px-8 py-3 hover:border-accent/50 hover:text-accent transition-all">
-            All Projects → 
+            All Projects →
           </Link>
+        </FadeUp>
+      </section>
+
+      {/* ══════════ FEATURED PUBLICATION ══════════ */}
+      <section className="relative z-10 px-4 sm:px-6 md:px-16 py-16 sm:py-20 max-w-7xl mx-auto">
+        <SectionHeader num="04" title="Latest Research" />
+        <FadeUp>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+            {(() => {
+              const pub = [...PUBLICATIONS].reverse().find((p:any) => p.status === 'Published') ?? PUBLICATIONS[0]
+              const pubUrl = (pub as any).url
+              return (
+                <div className="lg:col-span-3 border border-accent/20 p-6 sm:p-8 relative overflow-hidden" style={{ background: 'var(--surface)' }}>
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent via-accent2 to-transparent" />
+                  <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <span className="text-[0.58rem] tracking-[0.12em] uppercase px-2.5 py-1 border border-[#34d399]/30 text-[#34d399] bg-[#34d399]/5">Published</span>
+                    <span className="text-[0.58rem] font-mono text-muted/60">{pub.year}</span>
+                    <span className="text-[0.58rem] tracking-[0.1em] uppercase px-2 py-1 border border-white/[0.07] text-muted/60">{pub.domain}</span>
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold leading-snug mb-3" style={{ color: 'var(--text)' }}>{pub.title}</h3>
+                  <p className="text-[0.78rem] leading-[1.8] text-muted mb-5 line-clamp-3">{pub.abstract}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {pub.keywords.slice(0, 5).map((k:string) => (
+                      <span key={k} className="text-[0.58rem] px-2 py-0.5 border border-white/[0.07] text-muted/70">{k}</span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[0.6rem] text-muted/50 font-mono">{pub.journal}</div>
+                    </div>
+                    {pubUrl ? (
+                      <a href={pubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[0.68rem] tracking-[0.1em] uppercase px-5 py-2.5 bg-accent text-black font-sans font-bold hover:shadow-[0_8px_24px_rgba(0,212,255,0.35)] hover:-translate-y-px transition-all">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        Read Paper
+                      </a>
+                    ) : (
+                      <Link href="/publications" className="text-[0.68rem] tracking-[0.1em] uppercase px-5 py-2.5 border border-accent/30 text-accent hover:bg-accent/10 transition-all">View Research →</Link>
+                    )}
+                  </div>
+                </div>
+              )
+            })()}
+            <div className="lg:col-span-2 flex flex-col gap-4">
+              <div className="border border-white/[0.06] p-5" style={{ background: 'var(--surface)' }}>
+                <div className="text-[0.6rem] tracking-[0.15em] uppercase text-muted mb-4">All Publications</div>
+                <div className="space-y-3">
+                  {PUBLICATIONS.map((p:any) => (
+                    <div key={p.id} className="flex items-start gap-3">
+                      <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${p.status === 'Published' ? 'bg-[#34d399]' : p.status === 'Under Review' ? 'bg-[#a78bfa]' : p.status === 'Ready for Publication' ? 'bg-accent' : 'bg-accent3'}`} />
+                      <div>
+                        <div className="text-[0.68rem] leading-snug line-clamp-2" style={{ color: 'var(--text)' }}>{p.title.split(':')[0]}</div>
+                        <div className="text-[0.58rem] text-muted/50 mt-0.5">{p.journal} · {p.year}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/publications" className="flex items-center gap-2 mt-4 text-[0.65rem] tracking-[0.1em] uppercase text-accent hover:gap-3 transition-all">View All Research →</Link>
+              </div>
+            </div>
+          </div>
         </FadeUp>
       </section>
 
@@ -381,22 +497,28 @@ export default function Home() {
       <section className="relative z-10 px-4 sm:px-6 md:px-16 py-20 sm:py-28">
         <div className="max-w-3xl mx-auto text-center">
           <FadeUp>
+            <div className="inline-flex items-center gap-3 border border-white/[0.08] px-4 py-2 mb-8 text-[0.65rem] font-mono" style={{ background: 'var(--surface)' }}>
+              <span className="relative flex w-2 h-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34d399] opacity-40" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34d399]" />
+              </span>
+              <span className="text-muted">Currently building:</span>
+              <span className="text-accent">Resume Intelligence Engine</span>
+            </div>
             <div className="text-[0.65rem] tracking-[0.25em] uppercase text-accent mb-4">Open to Work</div>
             <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight mb-6">
               Let's build something<br /><span className="gradient-text">remarkable.</span>
             </h2>
             <p className="text-[0.85rem] leading-[1.85] text-muted mb-10 max-w-xl mx-auto">
-              I'm actively looking for roles in AI engineering, computer vision, backend, and cybersecurity. Let's talk.
+              Seeking AI Engineer / ML Engineer roles. 4 publications, MS CS 3.75 GPA, EC-Council certified. Southfield, MI — open to remote.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/contact" className="clip-btn bg-accent text-black font-sans font-bold text-[0.78rem] tracking-[0.1em] uppercase px-10 py-3.5 hover:shadow-[0_8px_40px_rgba(0,212,255,0.45)] hover:-translate-y-px transition-all">
                 Get in Touch
               </Link>
-              <a href={PERSON.github} target="_blank" rel="noopener noreferrer"
-                className="font-sans font-bold text-[0.78rem] tracking-[0.1em] uppercase px-10 py-3.5 border border-white/[0.12] text-muted hover:border-accent/50 hover:text-accent transition-all flex items-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                GitHub
-              </a>
+              <Link href="/publications" className="font-sans font-bold text-[0.78rem] tracking-[0.1em] uppercase px-10 py-3.5 border border-white/[0.12] text-muted hover:border-accent/50 hover:text-accent transition-all">
+                View Research
+              </Link>
             </div>
           </FadeUp>
         </div>

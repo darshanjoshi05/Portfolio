@@ -82,7 +82,7 @@ export default function ContactPage() {
     }
   }
 
-  const inputBase = `w-full bg-surface border border-white/[0.08] px-4 py-3 text-[0.82rem] text-[#e8f0fe] font-mono outline-none focus:border-accent/50 focus:bg-accent/[0.02] transition-all placeholder:text-muted/40`
+  const inputBase = `w-full bg-surface border border-white/[0.08] px-4 py-3 text-[0.82rem] font-mono outline-none focus:border-accent/50 focus:bg-accent/[0.02] transition-all placeholder:text-muted/40`
 
   return (
     <>
@@ -94,10 +94,11 @@ export default function ContactPage() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-accent/[0.03] rounded-full blur-[120px]" />
       </div>
 
-      <div className="relative z-10 pt-36 sm:pt-44 pb-24 sm:pb-32 px-4 sm:px-6 md:px-16 max-w-6xl mx-auto">
+      <div className="relative z-10 pt-8 sm:pt-12 pb-24 sm:pb-32 px-4 sm:px-6 md:px-16 max-w-6xl mx-auto">
 
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-10 sm:mb-16">
+          <h1 className="sr-only">Contact Darshan Joshi</h1>
           <div className="text-[0.62rem] sm:text-[0.65rem] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-accent mb-4 flex items-center gap-3">
             <span className="w-6 sm:w-8 h-px bg-accent" /> 05 — Let's Connect
           </div>
@@ -106,7 +107,7 @@ export default function ContactPage() {
             <span className="gradient-text"> remarkable.</span>
           </h1>
           <p className="text-[0.8rem] sm:text-[0.85rem] leading-[1.85] text-muted max-w-xl">
-            Actively looking for AI Engineer / ML Engineer roles. Open to full-time, contract, or research positions. Response guaranteed within 24h.
+            Actively looking for AI Engineer / ML Engineer roles. Open to full-time, contract, or research positions. Guaranteed response within 24 hours. Currently available for new opportunities.
           </p>
         </motion.div>
 
@@ -212,7 +213,7 @@ export default function ContactPage() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-[0.58rem] tracking-[0.14em] uppercase text-muted mb-0.5">{l.label}</div>
-                    <div className="text-[0.74rem] font-mono text-[#e8f0fe] truncate group-hover:text-accent transition-colors">
+                    <div className="text-[0.74rem] font-mono truncate group-hover:text-accent transition-colors">
                       {l.value}
                     </div>
                   </div>

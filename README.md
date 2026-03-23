@@ -1,4 +1,4 @@
-# Darshan Joshi — Portfolio\n\nUpdated by BLACKBOXAI on $(date) — Synced from local portfolio-next
+# Darshan Joshi — Portfolio
 
 A production-grade Next.js 14 portfolio with Three.js 3D scenes, Framer Motion animations, and a fully interactive project detail system.
 

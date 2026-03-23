@@ -1,0 +1,12 @@
+/* TEAM */
+Name: Darshan Joshi
+Role: AI Engineer, Developer
+Location: Southfield, Michigan, USA
+Email: joshidarshan193@gmail.com
+LinkedIn: https://www.linkedin.com/in/darshanjoshi05
+GitHub: https://github.com/darshanjoshi05
+
+/* SITE */
+Last update: 2026
+Standards: HTML5, CSS3, JavaScript
+Software: Next.js 14, Three.js, Framer Motion, TypeScript, Tailwind CSS
