@@ -14,9 +14,8 @@ export const PERSON = {
   ],
   stats: [
     { value: '3.75', label: "Master's GPA" },
-    { value: '4',    label: 'Publications' },
+    { value: '3',    label: 'Publications' },
     { value: '9',    label: 'Projects' },
-    { value: '5',    label: 'EC-Council Certs' },
   ],
 }
 
@@ -621,16 +620,6 @@ export const EDUCATION = [
   },
 ]
 
-export const CERTIFICATIONS = [
-  { name: 'Network Defense Essentials', issuer: 'EC-Council' },
-  { name: 'Ethical Hacking Essentials', issuer: 'EC-Council' },
-  { name: 'Digital Forensics Essentials', issuer: 'EC-Council' },
-  { name: 'Cisco Labs Crash Course', issuer: 'EC-Council' },
-  { name: 'Website Hacking Techniques', issuer: 'EC-Council' },
-  { name: 'Digital Marketing', issuer: 'General' },
-  { name: 'Student Ambassador Program', issuer: 'General' },
-]
-
 export const PUBLICATIONS = [
   {
     id: 'cyber-security-infrastructure',
@@ -719,36 +708,6 @@ export const PUBLICATIONS = [
       { label: 'Architecture', value: 'CNN + LSTM Hybrid' },
       { label: 'Application', value: 'Seismic Prediction' },
       { label: 'Published', value: 'Oct 30, 2025' },
-    ],
-  },
-  {
-    id: 'nlp-resume-intelligence',
-    num: '04',
-    url: '',
-    doi: '',
-    citedBy: 0,
-    title: 'NLP-Driven Resume Tailoring: A Modular Approach to JD-Aware Career Document Generation',
-    journal: 'IJCST',
-    journalFull: 'International Journal of Computer Science and Technology',
-    year: '2026',
-    status: 'Ready for Publication',
-    domain: 'NLP / Backend AI',
-    type: 'Technical Paper',
-    abstract: 'This paper describes the architecture, design decisions, and evaluation of a production-grade AI job application system built with FastAPI. The system features dual extraction (NLP + LLM), ATS scoring and sanitization, adaptive learning via term memory, recruiter outreach automation, and a full web dashboard. Achieves 87%+ suitability scoring accuracy and sub-2-second generation latency across PDF, DOCX, and JSON outputs.',
-    description: 'A technical paper detailing the NLP pipeline, modular architecture, and performance benchmarks of the Resume Intelligence Engine — a system for automatic, JD-aware resume generation.',
-    keywords: ['NLP', 'FastAPI', 'Resume Generation', 'JD Parsing', 'Document AI', 'Python', 'ReportLab'],
-    points: [
-      'Architected a 25+ module production system with FastAPI backend, web dashboard, SQLite database, and full test suite.',
-      'Implemented dual JD extraction pipeline: regex/NLP heuristics (jd_extract.py) + LLM-powered extraction (llm_extract.py).',
-      'Designed ATS scoring engine (ats_check.py, ats_sanitize.py) ensuring 91/100 ATS compatibility on generated resumes.',
-      'Built adaptive learning system (learner.py, term_memory.py) that improves skill matching accuracy over repeated use.',
-      'Automated recruiter outreach with personalized email generation (recruiter_msg.py) from JD context.',
-      'Benchmarked 87%+ suitability scoring accuracy and sub-2-second generation latency across PDF, DOCX, and JSON.',
-    ],
-    highlights: [
-      { label: 'ATS Score', value: '91/100 Average' },
-      { label: 'Suitability', value: '87%+ Accuracy' },
-      { label: 'Modules', value: '25+ Python Files' },
     ],
   },
 ]
