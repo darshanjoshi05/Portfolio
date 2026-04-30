@@ -5,7 +5,7 @@ import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import ProgressBar from '@/components/ui/ProgressBar'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { EDUCATION, CERTIFICATIONS, SKILL_GROUPS } from '@/lib/data'
+import { EDUCATION, SKILL_GROUPS } from '@/lib/data'
 import BackBar from '@/components/ui/BackBar'
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -58,27 +58,23 @@ export default function EducationPage() {
           <SectionHeader num="04" title="Education" />
         </motion.div>
 
-        {/* ── Degrees ── */}
+        {/* Degrees */}
         <FadeUp className="mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {EDUCATION.map((edu, i) => (
               <div key={i}
                 className="border border-white/[0.06] bg-surface p-8 relative overflow-hidden hover:border-accent/25 transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-                {/* bottom accent */}
                 <div className={`absolute bottom-0 left-0 right-0 h-[2px] ${i === 0 ? 'bg-gradient-to-r from-accent to-accent2' : 'bg-gradient-to-r from-accent2 to-accent3'}`} />
-
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <span className={`text-[0.6rem] tracking-[0.15em] uppercase px-3 py-1 border ${i === 0 ? 'border-accent/30 text-accent bg-accent/5' : 'border-accent2/30 text-[#a78bfa] bg-accent2/5'}`}>
                     {edu.type}
                   </span>
                   <span className="text-[0.68rem] font-mono text-muted">{edu.period}</span>
                 </div>
-
                 <h3 className="font-serif text-2xl font-bold mb-1">{edu.degree}</h3>
                 <p className="text-accent text-[0.82rem] mb-4">{edu.field}</p>
                 <p className="text-[0.8rem] text-muted mb-2">{edu.school}</p>
                 <p className="text-[0.72rem] text-muted/60 mb-5">{edu.location}</p>
-
                 <div className="flex items-center gap-4 pt-4 border-t border-white/[0.05]">
                   <div>
                     <div className="font-serif text-2xl font-bold text-accent">{edu.gpa}</div>
@@ -92,7 +88,7 @@ export default function EducationPage() {
           </div>
         </FadeUp>
 
-        {/* ── Skills ── */}
+        {/* Skills */}
         <FadeUp className="mb-24">
           <SectionHeader num="02" title="Technical Skills" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
@@ -109,38 +105,15 @@ export default function EducationPage() {
           </div>
         </FadeUp>
 
-        {/* ── Certifications ── */}
-        <FadeUp className="mb-24">
-          <SectionHeader num="03" title="Certifications" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {CERTIFICATIONS.map((cert, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="border border-white/[0.06] bg-surface p-5 flex gap-4 items-start hover:border-accent/25 transition-all group">
-                <div className={`w-8 h-8 rounded-sm flex items-center justify-center shrink-0 text-sm ${cert.issuer === 'EC-Council' ? 'bg-accent/10 text-accent border border-accent/20' : 'bg-accent2/10 text-[#a78bfa] border border-accent2/20'}`}>
-                  {cert.issuer === 'EC-Council' ? '🛡' : '📜'}
-                </div>
-                <div>
-                  <div className="text-[0.78rem] font-sans font-semibold group-hover:text-accent transition-colors mb-1">{cert.name}</div>
-                  <div className={`text-[0.62rem] tracking-[0.1em] uppercase ${cert.issuer === 'EC-Council' ? 'text-accent/70' : 'text-[#a78bfa]/70'}`}>{cert.issuer}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </FadeUp>
-
-        {/* ── Research teaser ── */}
+        {/* Research teaser */}
         <FadeUp className="mb-16">
           <div className="border border-accent3/20 bg-accent3/[0.03] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
             <div>
               <div className="text-[0.6rem] tracking-[0.18em] uppercase text-accent3 mb-2 flex items-center gap-2">
                 <span className="w-4 h-px bg-accent3" /> Publications
               </div>
-              <h3 className="font-serif text-xl font-bold mb-1">4 Research Publications</h3>
-              <p className="text-[0.78rem] text-muted">Cybersecurity · Computer Vision · Seismic AI · NLP — view abstracts, contributions &amp; citations.</p>
+              <h3 className="font-serif text-xl font-bold mb-1">2 Research Publications</h3>
+              <p className="text-[0.78rem] text-muted">Cybersecurity · Seismic AI — view abstracts, contributions &amp; citations.</p>
             </div>
             <a href="/publications"
               className="shrink-0 clip-btn border border-accent3/40 text-accent3 font-sans font-bold text-[0.72rem] tracking-[0.1em] uppercase px-6 py-3 hover:bg-accent3/10 transition-all whitespace-nowrap">
