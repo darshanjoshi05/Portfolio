@@ -1,6 +1,6 @@
 export const PERSON = {
   name: 'Darshan Joshi',
-  title: 'AI Engineer · Computer Vision · NLP · Cybersecurity',
+  title: 'Software Engineer · Computer Vision · NLP ',
   email: 'joshidarshan193@gmail.com',
   phone: '+1 947 240 5099',
   location: 'Southfield, MI, USA',
