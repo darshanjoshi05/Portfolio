@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 mb-8">
           <div>
             <div className="font-sans font-black text-accent text-xl tracking-tight mb-1">Darshan Joshi</div>
-            <p className="text-[0.68rem] text-muted font-mono">AI Engineer · Computer Vision · NLP · Cybersecurity</p>
+            <p className="text-[0.68rem] text-muted font-mono"> Software Engineer · AI Systems · Full Stack · Backend </p>  
             <p className="text-[0.62rem] text-muted/50 mt-0.5 font-mono">Southfield, MI · Open to Opportunities</p>
           </div>
           <div className="flex flex-wrap gap-x-8 gap-y-3 text-[0.68rem]">
@@ -61,7 +61,7 @@ export default function Footer() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
             <span className="text-[0.68rem] font-mono text-accent tracking-[0.08em]">Available for hire</span>
-            <span className="text-[0.62rem] text-muted/60 font-mono">· AI Engineer / ML Engineer / Research roles · Remote or Southfield, MI</span>
+            <span className="text-[0.62rem] text-muted/60 font-mono">·Software Engineer / AI Engineer / Full Stack roles · Remote or Southfield, MI</span>
           </div>
           <Link href="/contact"
             className="text-[0.62rem] tracking-[0.12em] uppercase text-accent border border-accent/30 px-4 py-1.5 hover:bg-accent/10 transition-all whitespace-nowrap font-mono">
