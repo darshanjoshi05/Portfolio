@@ -83,21 +83,19 @@ export default function Home() {
       {/* ══════════ HERO ══════════ */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <HeroScene />
-        {/* gradient overlay — stronger on mobile so text is readable over 3D */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-r from-bg/95 via-bg/70 to-bg/20 pointer-events-none" />
 
         <div className="relative z-[3] px-4 sm:px-6 md:px-16 pt-24 sm:pt-20 pb-12 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
             {/* Left */}
             <div>
-              {/* Mobile-only circular photo — shown above name on small screens */}
+              {/* Mobile-only circular photo */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="flex items-center gap-4 mb-5 lg:hidden"
               >
                 <div className="relative shrink-0">
-                  {/* Accent ring */}
                   <div className="absolute -inset-[3px] rounded-full border border-accent/50 pointer-events-none" />
                   <div className="absolute -inset-[6px] rounded-full border border-accent/20 pointer-events-none" />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,7 +104,6 @@ export default function Home() {
                     alt="Darshan Joshi"
                     className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-accent/40"
                   />
-                  {/* Online dot with pulse ring */}
                   <span className="absolute bottom-0.5 right-0.5 flex">
                     <span className="absolute inline-block w-3 h-3 rounded-full bg-[#34d399]/40 animate-ping" />
                     <span className="relative w-3 h-3 rounded-full bg-[#34d399] border-2 border-bg" />
@@ -114,7 +111,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="text-[0.7rem] font-sans font-bold text-theme">Darshan Joshi</div>
-                  <div className="text-[0.6rem] text-accent tracking-[0.1em] uppercase">AI Engineer</div>
+                  <div className="text-[0.6rem] text-accent tracking-[0.1em] uppercase">Software Engineer</div>
                 </div>
               </motion.div>
 
@@ -135,7 +132,7 @@ export default function Home() {
 
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-[0.8rem] sm:text-[0.85rem] leading-[1.85] text-muted max-w-[520px] mb-6 sm:mb-8">
-                Building real-time computer vision systems, NLP document pipelines, and cybersecurity tools. Research Assistant at Lawrence Tech — 4 publications, 5 EC-Council certs, MS in CS (GPA 3.75/4.0).
+                Building AI systems, full stack applications, and backend services. Research Assistant at Lawrence Tech — 2 publications, MS in CS (GPA 3.35/4.0). Open to Software Engineer, AI, and Full Stack roles.
               </motion.p>
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.65 }}
@@ -169,13 +166,10 @@ export default function Home() {
             {/* Right — photo + terminal */}
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.5 }}
               className="hidden lg:flex flex-col gap-6">
-              {/* Photo — round floating with gradient ring */}
               <div className="self-center flex flex-col items-center gap-3">
                 <div className="relative" style={{ animation: 'float-photo 3.5s ease-in-out infinite' }}>
-                  {/* Animated gradient border */}
                   <div className="absolute -inset-[3px] rounded-full pointer-events-none"
                     style={{ background: 'linear-gradient(135deg, #00d4ff, #7c3aed, #f59e0b, #00d4ff)', backgroundSize: '300% 300%', animation: 'gradient-shift 4s ease infinite', borderRadius: '9999px' }} />
-                  {/* Outer glow ring */}
                   <div className="absolute -inset-[10px] rounded-full pointer-events-none opacity-40"
                     style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.2) 0%, transparent 70%)' }} />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -183,13 +177,11 @@ export default function Home() {
                     className="relative w-[200px] h-[200px] rounded-full object-cover object-top border-[3px] border-bg"
                     style={{ position: 'relative', zIndex: 1 }}
                   />
-                  {/* Online dot */}
                   <span className="absolute bottom-3 right-3 flex" style={{ zIndex: 2 }}>
                     <span className="absolute inline-block w-4 h-4 rounded-full bg-[#34d399]/40 animate-ping" />
                     <span className="relative w-4 h-4 rounded-full bg-[#34d399] border-2 border-bg" />
                   </span>
                 </div>
-                {/* Floating shadow */}
                 <div style={{ width: '120px', height: '10px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(0,212,255,0.25) 0%, transparent 70%)', animation: 'shadow-fade 3.5s ease-in-out infinite' }} />
               </div>
 
@@ -244,7 +236,6 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-2 space-y-4">
-            {/* Photo — desktop sidebar, round floating */}
             <FadeUp>
               <div className="hidden lg:flex flex-col items-center gap-2 mb-6">
                 <div className="relative" style={{ animation: 'float-photo 3.5s ease-in-out infinite' }}>
@@ -263,9 +254,9 @@ export default function Home() {
             {[
               { label: 'Location', val: PERSON.location },
               { label: 'Status', val: 'Open to Opportunities', accent: true },
-              { label: 'Degree', val: "M.S. Computer Science" },
-              { label: 'GPA', val: '3.75 / 4.0', accent: true },
-              { label: 'Publications', val: '4 Research Papers', accent: true },
+              { label: 'Degree', val: 'M.S. Computer Science' },
+              { label: 'GPA', val: '3.35 / 4.0', accent: true },
+              { label: 'Publications', val: '2 Research Papers', accent: true },
               { label: 'Email', val: PERSON.email },
             ].map((r, i) => (
               <FadeUp key={r.label} delay={i * 0.06}>
@@ -276,7 +267,6 @@ export default function Home() {
               </FadeUp>
             ))}
 
-            {/* Resume download CTA */}
             <FadeUp delay={0.4}>
               <a href="/resume" target="_blank" rel="noopener noreferrer"
                 className="mt-2 flex items-center justify-between w-full border border-accent/25 bg-accent/[0.04] px-4 py-3 hover:bg-accent/[0.08] hover:border-accent/50 transition-all group">
@@ -295,15 +285,11 @@ export default function Home() {
       <section id="experience" className="relative z-10 px-4 sm:px-6 md:px-16 py-16 sm:py-24 max-w-7xl mx-auto">
         <SectionHeader num="02" title="Experience" />
         <div className="relative pl-6 md:pl-12">
-          {/* timeline line */}
           <div className="absolute left-0 top-2 bottom-2 w-px timeline-line" />
-
           {EXPERIENCE.map((exp, i) => (
             <FadeUp key={i} delay={0.1}>
               <div className="relative mb-16 last:mb-0">
-                {/* dot */}
                 <div className="absolute -left-[25px] md:-left-[49px] top-1.5 w-3 h-3 rounded-full bg-accent border-2 border-bg shadow-[0_0_12px_rgba(0,212,255,0.6)]" />
-
                 <div className="border border-white/[0.06] bg-surface p-8 hover:border-accent/20 transition-colors">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                     <div>
@@ -336,7 +322,6 @@ export default function Home() {
       <section id="projects" className="relative z-10 px-4 sm:px-6 md:px-16 py-16 sm:py-24 max-w-7xl mx-auto">
         <SectionHeader num="03" title="Selected Projects" />
 
-        {/* Featured project — full-width showcase */}
         {PROJECTS.filter(p => p.featured).map(p => (
           <FadeUp key={p.id} delay={0.05} className="mb-5">
             <Link href={`/projects/${p.id}`}
@@ -386,7 +371,6 @@ export default function Home() {
           </FadeUp>
         ))}
 
-        {/* Remaining 4 projects in a clean 4-col grid — no col-spanning */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PROJECTS.filter(p => !p.featured).map((p, i) => (
             <FadeUp key={p.id} delay={i * 0.07}>
@@ -507,10 +491,10 @@ export default function Home() {
             </div>
             <div className="text-[0.65rem] tracking-[0.25em] uppercase text-accent mb-4">Open to Work</div>
             <h2 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight mb-6">
-              Let's build something<br /><span className="gradient-text">remarkable.</span>
+              {"Let's build something"}<br /><span className="gradient-text">remarkable.</span>
             </h2>
             <p className="text-[0.85rem] leading-[1.85] text-muted mb-10 max-w-xl mx-auto">
-              Seeking AI Engineer / ML Engineer roles. 4 publications, MS CS 3.75 GPA, EC-Council certified. Southfield, MI — open to remote.
+              Seeking Software Engineer / AI Engineer / Full Stack roles. 2 publications, MS CS 3.35 GPA. Southfield, MI — open to remote.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/contact" className="clip-btn bg-accent text-black font-sans font-bold text-[0.78rem] tracking-[0.1em] uppercase px-10 py-3.5 hover:shadow-[0_8px_40px_rgba(0,212,255,0.45)] hover:-translate-y-px transition-all">
