@@ -4,13 +4,13 @@ import Link from 'next/link'
 const BASE_URL = 'https://darshanjoshi.tech'
 
 export const metadata: Metadata = {
-  title: 'About Darshan Joshi — AI Engineer',
+  title: 'About Darshan Joshi — Software Engineer',
   description:
-    'About Darshan Joshi — AI Engineer, researcher, and MS Computer Science graduate at Lawrence Technological University. Specializes in Computer Vision (YOLOv8, Grad-CAM), NLP, FastAPI backend engineering, and Cybersecurity. 4 published research papers. EC-Council certified.',
+    'About Darshan Joshi — Software Engineer and MS Computer Science graduate at Lawrence Technological University. Builds AI systems, full stack applications, and backend services. Specializes in Computer Vision (YOLOv8), FastAPI, React, PyTorch, and SQL. 2 published research papers.',
   keywords: [
     'about Darshan Joshi',
     'who is Darshan Joshi',
-    'Darshan Joshi AI engineer',
+    'Darshan Joshi Software Engineer',
     'Darshan Joshi biography',
     'Darshan Joshi background',
     'Darshan Joshi Lawrence Tech',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
     title: 'About Darshan Joshi',
-    description: 'AI Engineer and researcher. MS CS at Lawrence Tech. 4 publications. EC-Council certified.',
+    description: 'Software Engineer and researcher. MS CS at Lawrence Tech. 2 publications.',
     url: `${BASE_URL}/about`,
   },
 }
@@ -30,7 +30,7 @@ const aboutSchema = {
   '@id': `${BASE_URL}/about`,
   name: 'About Darshan Joshi',
   url: `${BASE_URL}/about`,
-  description: 'About page for Darshan Joshi, AI Engineer and researcher at Lawrence Technological University.',
+  description: 'About page for Darshan Joshi, Software Engineer and researcher at Lawrence Technological University.',
   mainEntity: {
     '@type': 'Person',
     '@id': `${BASE_URL}/#person`,
@@ -46,7 +46,7 @@ export default function AboutPage() {
       <main style={{ maxWidth: 800, margin: '0 auto', padding: '120px 24px 80px', fontFamily: 'monospace' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: 'var(--text)' }}>Darshan Joshi</h1>
         <p style={{ color: 'var(--accent)', marginBottom: '2rem', fontSize: '0.9rem' }}>
-          AI Engineer · Computer Vision · NLP · Cybersecurity
+          Software Engineer · AI Systems · Full Stack · Backend
         </p>
 
         <section style={{ marginBottom: '2rem' }}>
@@ -54,14 +54,14 @@ export default function AboutPage() {
             About
           </h2>
           <p style={{ lineHeight: 1.8, color: 'var(--muted)', marginBottom: '1rem' }}>
-            Darshan Joshi is an AI Engineer and Research Assistant at Lawrence Technological University in Southfield, Michigan.
-            He holds a Master of Science in Computer Science Engineering with a GPA of 3.75/4.0 and a Bachelor of Engineering in
+            Darshan Joshi is a Software Engineer and Research Assistant at Lawrence Technological University in Southfield, Michigan.
+            He holds a Master of Science in Computer Science Engineering with a GPA of 3.35/4.0 and a Bachelor of Engineering in
             Computer Science from Sree Dattha Institute of Engineering and Science, Hyderabad, India.
           </p>
           <p style={{ lineHeight: 1.8, color: 'var(--muted)' }}>
-            Darshan specializes in computer vision (YOLOv8, Grad-CAM, OpenCV), natural language processing,
-            FastAPI backend engineering, and cybersecurity. He is EC-Council certified across five domains:
-            Network Defense Essentials, Ethical Hacking Essentials, Digital Forensics Essentials, Cisco Labs, and Website Hacking Techniques.
+            Darshan specializes in building AI systems, full stack applications, and backend services. His technical work spans
+            computer vision (YOLOv8, PyTorch, Grad-CAM), FastAPI backend engineering, React frontends, database design (MySQL, 3NF),
+            Docker deployment, and NLP pipelines.
           </p>
         </section>
 
@@ -71,9 +71,7 @@ export default function AboutPage() {
           </h2>
           <ul style={{ lineHeight: 2.0, color: 'var(--muted)', paddingLeft: '1.2rem' }}>
             <li>Design and Analysis of Cyber Security Infrastructure in Large Enterprises and Organisations — IJARESM, 2023</li>
-            <li>Classroom Behavior Detection Using YOLOv8 and Explainable AI — IJSRST, 2025 (Under Review)</li>
             <li>Earthquake Prediction and Synthetic Seismogram Generation Using Hybrid CNN-LSTM Model — American Journal of Civil Engineering, 2025</li>
-            <li>NLP-Driven Resume Tailoring: A Modular Approach to JD-Aware Career Document Generation — IJCST, 2026 (Ready for Publication)</li>
           </ul>
         </section>
 
