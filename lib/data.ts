@@ -1,6 +1,6 @@
 export const PERSON = {
   name: 'Darshan Joshi',
-  title: 'Software Engineer · AI · Full Stack · Backend',,
+  title: 'Software Engineer · AI · Full Stack · Backend',
   email: 'joshidarshan193@gmail.com',
   phone: '+1 947 240 5099',
   location: 'Southfield, MI, USA',
