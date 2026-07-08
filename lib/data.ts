@@ -12,9 +12,9 @@ export const PERSON = {
 "I have 2 peer-reviewed publications in cybersecurity and deep learning, 9 engineering projects, and an MS in Computer Science (GPA 3.75/4.0) from Lawrence Technological University.",
   ],
   stats: [
-    { value: '3.35', label: "Master's GPA" },
+    "{ value: '3.35', label: "Master's GPA" },"
     { value: '3',    label: 'Publications' },
-    { value: '9',    label: 'Projects' },
+    { value: '3',    label: 'Projects' },
   ],
 }
 
